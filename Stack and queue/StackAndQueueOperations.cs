@@ -29,6 +29,7 @@ namespace Stack_and_queue
 
             }
         }
+
         public Node GetLastNode()
         {
             Node temp = front;
@@ -39,6 +40,18 @@ namespace Stack_and_queue
             return temp;
         }
 
+
+        //Dequeue data from front
+        public void Dequeue()
+        {
+            if (front == null)
+            {
+                Console.WriteLine("\nQueue is empty! Nothing to Pop");
+                return;
+            }
+            Console.WriteLine("\nDE QUEUED ELEMENT: {0}",front.data);
+            front=front.next;
+        }
         //Display stack data
         public int Display()
         {

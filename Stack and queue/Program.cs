@@ -19,6 +19,10 @@ namespace Stack_and_queue
             //Display operation
             Console.Write("\n-----DISPLAYING QUEUE ELEMENTS-----\n\n");
             count=queue.Display();
+            for(int i=0;i<=count;i++)
+            {
+                queue.Dequeue();
+            }
 
         }
     }
