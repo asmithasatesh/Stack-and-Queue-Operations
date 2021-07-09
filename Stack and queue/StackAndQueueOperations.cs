@@ -6,55 +6,43 @@ namespace Stack_and_queue
 {
     class StackAndQueueOperations
     {
-        Node top;
+        Node front;
 
         //Push data at Top
-        public void Push(int data)
+        public void Enqueue(int data)
         {
             Node newNode = new Node(data);
-            top = Add(newNode);
+            Append(newNode);
         }
 
         //Add data at top
-        public Node Add(Node newNode)
+        public void Append(Node newNode)
         {
-            if (top == null)
+            if (front == null)
             {
-                top = newNode;
+                front = newNode;
             }
             else
             {
-                newNode.next = top;
-                top = newNode;
+                Node temp = GetLastNode();
+                temp.next = newNode;
+
             }
-            return top;
         }
-        //Pop data from top
-        public void Pop()
+        public Node GetLastNode()
         {
-            if(top==null)
+            Node temp = front;
+            while(temp.next!=null)
             {
-                Console.WriteLine("\nStack is empty! Nothing to Pop");
-                return;
+                temp = temp.next;
             }
-            Console.WriteLine("\n***POPPED ELEMENT***\n{0}", Peek());
-            top = top.next;
+            return temp;
         }
 
-        //Peek at top element and return
-        public int Peek()
-        {
-            if(top==null)
-            {
-                Console.WriteLine("No element in stack to pop");
-                return -1;
-            }
-            return top.data;
-        }
         //Display stack data
         public int Display()
         {
-            Node temp = top;
+            Node temp = front;
             int count = 0;
             while (temp != null)
             {
